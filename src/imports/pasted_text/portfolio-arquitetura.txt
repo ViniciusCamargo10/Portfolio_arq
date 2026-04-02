@@ -1,0 +1,132 @@
+Quero um site de PORTFÓLIO para um(a) ARQUITETO(A), com visual bem criativo e interativo, pronto para prototipagem no Figma. Gere Design System, páginas, componentes, interações e textos base (copy) já posicionados nos frames. Tudo deve ser editável posteriormente.
+
+[OBJETIVO]
+- Valorizar imagens e comparativos “Antes/Depois”.
+- Navegação simples, foco em projetos e contato fácil.
+- Protótipo navegável com microinterações e acessibilidade.
+
+[ESTRUTURA DE PÁGINAS]
+- Home
+- Sobre
+- Experiência
+- Projetos (índice com filtros)
+- Projeto (estudo de caso)
+- Certificados
+- Contato
+
+[DESIGN SYSTEM]
+- Color Styles:
+  - Primária, Secundária, Neutros (50–900), Sucesso/Alerta/Erro.
+- Text Styles:
+  - Display, H1–H6, Body, Caption (definir pesos e tamanhos responsivos).
+- Efeitos:
+  - Sombra suave (elevation 1–3), glass blur sutil (para chips/overlays).
+- Tokens/Variables:
+  - Tema: Claro/Escuro (aplicar em todas as surfaces e textos).
+  - Espaçamentos (4/8/12/16/24/32/48/64).
+  - Raios (4/8/12).
+- Grids:
+  - Desktop: 12 colunas (gutter 24).
+  - Tablet: 6 colunas (gutter 16).
+  - Mobile: 4 colunas (gutter 12).
+- Use **Auto Layout em tudo** e **nomeie camadas semanticamente** (ex.: `Comp/CardProjeto/Default`).
+
+[VARIAÇÕES DE TEMA (MOODBOARDS)]
+Crie 3 temas alternáveis via Variables:
+1) Minimalista Escandinavo — fundo claro, Sora + Lora, acento #2E7D6F.
+2) Industrial Chic — cinzas profundos, terracota #C46A45, Inter + Playfair.
+3) Tropical Moderno — neutros quentes, acento verde-folha, textura noise muito leve.
+Inclua um “Theme Switch” para visualização rápida no protótipo.
+
+[COMPONENTES PRINCIPAIS]
+- Header (sticky): logo/brand, navegação, CTA “Fale comigo”.
+- Footer: redes (Instagram, Pinterest, LinkedIn), direitos autorais, e-mail.
+- Botões: Primário, Secundário, Terciário (estados hover/focus/disabled).
+- Form Inputs: nome, e‑mail, telefone, cidade, tipo de projeto (select), mensagem (textarea).
+- **CardProjeto**:
+  - Thumb grande, título, tipologia, cidade/ano.
+  - Hover: leve parallax + elevação + label “Ver estudo de caso”.
+  - Variantes: `sm | md | lg`.
+- **FiltroChips**:
+  - Tags para tipologia, ano, cidade, metragem, estilo.
+  - Estados: default/ativo/focado/desabilitado.
+- **DepoimentoCard**:
+  - Carrossel com auto‑play e pausa no hover; setas e dots focáveis.
+- **GaleriaLightbox**:
+  - Zoom, navegação teclado (← →), fechar com Esc.
+- **BeforeAfter (comparador A/B)**:
+  - Variante `modo=slider`: handle arrastável com labels “Antes/Depois”, suporte teclado (← → ajusta handle).
+  - Variante `modo=lado-a-lado`: botão “Alternar” exibindo A/B.
+  - Slots: `imagem_antes` e `imagem_depois`, com masks responsivas.
+  - Tooltip de cursor: “Arraste ↔ para comparar”.
+
+[PÁGINAS — LAYOUT E INTERAÇÕES]
+- **Home**
+  - Hero: imagem autoral + título com Split Text (animação fade‑up por letras).
+  - Subtítulo em 2 linhas e CTAs “Ver Projetos” (primário) / “Fale comigo” (secundário).
+  - “Como trabalho” (3 etapas): briefing → conceito → obra, com scroll‑reveal.
+  - Destaques de 3–6 projetos (CardProjeto) em carrossel/scroll horizontal com snap.
+  - Depoimentos (carrossel curto).
+- **Sobre**
+  - Foto do arquiteto, mini‑bio (4–6 linhas), diferenciais (bullets), valores (3 bullets).
+  - Bloco com links para redes e opção de baixar currículo (CTA).
+- **Experiência**
+  - Timeline 4–6 entradas (escritório/cargo/período + 1–2 linhas de impacto).
+  - Habilidades: softwares (AutoCAD, Revit, SketchUp, V‑Ray) e focos (residencial, comercial, corporativo).
+- **Projetos (Índice)**
+  - Barra de filtros (FiltroChips) + busca.
+  - Grade responsiva (masonry/auto‑fit) com transição suave ao filtrar.
+- **Projeto (Estudo de Caso)**
+  - Hero: título, tipologia, cidade/ano, metragem (m²) com contagem animada 0 → valor.
+  - Seções com anchors: Desafio → Conceito → Soluções → Resultados.
+  - **Galeria Antes/Depois**: 2–4 pares usando componente `BeforeAfter` (misture `slider` e `lado‑a‑lado`).
+  - Teaser de vídeo com scrubbing simulado pelo scroll (mock frame sequence).
+  - Depoimento do cliente (opcional).
+- **Certificados**
+  - Cards com título, órgão emissor, ano, thumb do certificado (preview).
+- **Contato**
+  - Texto curto de convite (1–2 linhas), formulário completo e botões: WhatsApp/Instagram/E‑mail.
+  - Mensagens de sucesso/erro e estados de carregamento no botão.
+
+[ACESSIBILIDADE]
+- Contraste AA mínimo em todos os temas.
+- Estado de foco evidente em links, botões e chips.
+- Tamanho mínimo de alvo de toque.
+- Placeholders de `alt text` nas imagens (orientar “descrever ambiente, ângulo, material”).
+- Navegação por teclado funcionando (Tab/Shift+Tab/Enter/Espaço/Setas).
+
+[MICROINTERAÇÕES & TRANSIÇÕES]
+- Smart Animate entre páginas simulado no protótipo.
+- Parallax sutil em heros/galleries (foreground/background).
+- Split‑reveal diagonal como variação criativa para um par Antes/Depois.
+- Modo escuro com transição crossfade suave.
+
+[COPY (INSERIR TEXTO BASE NOS FRAMES)]
+- **Home**: 
+  - Headline (1 linha) com proposta de valor clara.
+  - Subtítulo (até 2 linhas).
+  - “Como trabalho”: 3 bullets orientados a benefício.
+  - Cards de projeto: 1 linha de descrição + cidade/ano.
+  - 3 depoimentos curtos (autor/cidade).
+- **Sobre**: mini‑bio, diferenciais (4–6 bullets), valores (3 bullets), redes.
+- **Experiência**: timeline com 4–6 entradas curtas + lista de softwares/focos.
+- **Projetos – Índice**: parágrafo introdutório (2–3 linhas) + microcopy para filtros.
+- **Projeto – Estudo de Caso**: textos para Desafio/Conceito/Soluções/Resultados (2–5 linhas cada) e legendas de cada par Antes/Depois (1 linha).
+- **Certificados**: 5 itens com nome, órgão emissor, ano e 1 linha de relevância.
+- **Contato**: convite curto, rótulos claros, mensagens de sucesso/erro.
+
+[PLACEHOLDERS REALISTAS]
+- Use cidades brasileiras, anos plausíveis e metragens (m²).
+- Crie 6 projetos exemplo; cada um com 2–4 pares Antes/Depois (imagens placeholder).
+- Incluir 5 certificados e 3 depoimentos.
+
+[ORGANIZAÇÃO NO ARQUIVO FIGMA]
+- Crie páginas: “Design System”, “Páginas”, “Protótipo”.
+- Conecte navegação do Header (Home → demais páginas; cards → estudos de caso).
+- Adicione um frame lateral “Como editar” com instruções rápidas (trocar textos/imagens, duplicar CardProjeto, alterar tema via Variables).
+
+[ENTREGA]
+- Protótipo navegável com as interações descritas.
+- Componentes reutilizáveis, Variants e Variables funcionando nos 3 temas.
+- Camadas nomeadas, Auto Layout aplicado e documentação breve nos frames principais.
+``
