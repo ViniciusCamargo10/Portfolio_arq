@@ -1,5 +1,6 @@
 import { motion } from 'motion/react';
-import { Award, ExternalLink } from 'lucide-react';
+import { Award } from 'lucide-react';
+import { Link } from 'react-router';
 
 interface Certificate {
   title: string;
@@ -26,7 +27,7 @@ export default function Certificados() {
       image: 'https://images.unsplash.com/photo-1639405069836-f82aa6dcb900?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBraXRjaGVuJTIwZGVzaWdufGVufDF8fHx8MTc3Mzc1MjUzNXww&ixlib=rb-4.1.0&q=80&w=1080',
     },
     {
-      title: 'Certificado em BIM - Revit Architecture',
+      title: 'Certificado em BIM — Revit Architecture',
       issuer: 'Autodesk Education',
       year: 2020,
       description: 'Domínio avançado em modelagem de informação da construção',
@@ -57,7 +58,7 @@ export default function Certificados() {
           animate={{ opacity: 1, y: 0 }}
           className="text-center mb-16"
         >
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-[var(--color-primary)] rounded-full mb-6">
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-(--color-primary) rounded-full mb-6">
             <Award className="w-8 h-8 text-white" />
           </div>
           <h1 className="text-5xl md:text-6xl font-serif mb-6">Certificados</h1>
@@ -83,8 +84,9 @@ export default function Certificados() {
                   src={cert.image}
                   alt={cert.title}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  loading="lazy"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent" />
                 <div className="absolute bottom-4 left-4 right-4">
                   <span className="inline-block px-3 py-1 bg-white/20 backdrop-blur-sm text-white rounded-full text-sm">
                     {cert.year}
@@ -94,20 +96,15 @@ export default function Certificados() {
 
               {/* Certificate Info */}
               <div className="p-6">
-                <h3 className="text-xl font-serif mb-2 group-hover:text-[var(--color-primary)] transition-colors">
+                <h3 className="text-xl font-serif mb-2 group-hover:text-(--color-primary) transition-colors">
                   {cert.title}
                 </h3>
-                <p className="text-[var(--color-primary)] font-medium mb-3">
+                <p className="text-(--color-primary) font-medium mb-3">
                   {cert.issuer}
                 </p>
-                <p className="text-gray-600 dark:text-gray-400 text-sm mb-4">
+                <p className="text-gray-600 dark:text-gray-400 text-sm">
                   {cert.description}
                 </p>
-                
-                <button className="inline-flex items-center gap-2 text-[var(--color-primary)] hover:gap-3 transition-all text-sm font-medium">
-                  Ver certificado
-                  <ExternalLink className="w-4 h-4" />
-                </button>
               </div>
             </motion.div>
           ))}
@@ -124,15 +121,15 @@ export default function Certificados() {
             Educação Continuada
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">
-            Acredito no aprendizado contínuo e sempre busco me atualizar com as últimas 
+            Acredito no aprendizado contínuo e sempre busco me atualizar com as últimas
             tendências e tecnologias em arquitetura e design.
           </p>
-          <a
-            href="/contato"
-            className="inline-block px-8 py-4 bg-[var(--color-primary)] text-white rounded-lg hover:bg-[var(--color-primary-dark)] transition-colors"
+          <Link
+            to="/contato"
+            className="inline-block px-8 py-4 bg-(--color-primary) text-white rounded-lg hover:bg-(--color-primary-dark) transition-colors"
           >
             Entre em Contato
-          </a>
+          </Link>
         </motion.div>
       </div>
     </div>

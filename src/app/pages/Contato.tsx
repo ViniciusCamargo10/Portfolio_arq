@@ -2,6 +2,11 @@ import { useState } from 'react';
 import { motion } from 'motion/react';
 import { Mail, Phone, MapPin, Send, Instagram, Linkedin, MessageCircle, CheckCircle } from 'lucide-react';
 
+const EMAIL = 'contato@masciaarquitetura.com.br';
+const WHATSAPP = 'https://wa.me/5511999999999';
+const INSTAGRAM = 'https://instagram.com/masciamarcelo';
+const LINKEDIN = 'https://linkedin.com/in/masciamarcelo';
+
 export default function Contato() {
   const [formData, setFormData] = useState({
     name: '',
@@ -11,9 +16,7 @@ export default function Contato() {
     projectType: '',
     message: '',
   });
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
-  const [error, setError] = useState('');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData(prev => ({
@@ -22,29 +25,26 @@ export default function Contato() {
     }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
-    setError('');
 
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setIsSuccess(true);
-      
-      // Reset form
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        city: '',
-        projectType: '',
-        message: '',
-      });
+    const subject = `Novo contato via portfólio — ${formData.projectType || 'Projeto'}`;
+    const body = [
+      `Nome: ${formData.name}`,
+      `E-mail: ${formData.email}`,
+      formData.phone ? `Telefone: ${formData.phone}` : '',
+      formData.city ? `Cidade: ${formData.city}` : '',
+      `Tipo de projeto: ${formData.projectType}`,
+      '',
+      `Mensagem:`,
+      formData.message,
+    ].filter(Boolean).join('\n');
 
-      // Reset success message after 5 seconds
-      setTimeout(() => setIsSuccess(false), 5000);
-    }, 1500);
+    window.location.href = `mailto:${EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+    setIsSuccess(true);
+    setFormData({ name: '', email: '', phone: '', city: '', projectType: '', message: '' });
+    setTimeout(() => setIsSuccess(false), 6000);
   };
 
   return (
@@ -58,7 +58,7 @@ export default function Contato() {
         >
           <h1 className="text-5xl md:text-6xl font-serif mb-6">Vamos Conversar?</h1>
           <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-            Estou pronta para transformar seu sonho em realidade. Entre em contato e vamos 
+            Estou pronto para transformar seu sonho em realidade. Entre em contato e vamos
             criar juntos o espaço perfeito para você.
           </p>
         </motion.div>
@@ -72,24 +72,18 @@ export default function Contato() {
           >
             <div className="bg-white dark:bg-gray-800 rounded-lg p-8 shadow-lg">
               <h2 className="text-2xl font-serif mb-6">Envie sua Mensagem</h2>
-              
+
               {isSuccess && (
                 <motion.div
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
                   className="mb-6 p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg flex items-center gap-3"
                 >
-                  <CheckCircle className="w-5 h-5 text-green-600 dark:text-green-400" />
+                  <CheckCircle className="w-5 h-5 text-green-600 dark:text-green-400 shrink-0" />
                   <p className="text-green-800 dark:text-green-200">
-                    Mensagem enviada com sucesso! Entraremos em contato em breve.
+                    Seu cliente de e-mail foi aberto com a mensagem pronta. Envie para finalizar o contato!
                   </p>
                 </motion.div>
-              )}
-
-              {error && (
-                <div className="mb-6 p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg">
-                  <p className="text-red-800 dark:text-red-200">{error}</p>
-                </div>
               )}
 
               <form onSubmit={handleSubmit} className="space-y-4">
@@ -104,7 +98,7 @@ export default function Contato() {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]"
+                    className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-(--color-primary)"
                     placeholder="Seu nome completo"
                   />
                 </div>
@@ -121,7 +115,7 @@ export default function Contato() {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]"
+                      className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-(--color-primary)"
                       placeholder="seu@email.com"
                     />
                   </div>
@@ -136,7 +130,7 @@ export default function Contato() {
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]"
+                      className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-(--color-primary)"
                       placeholder="(11) 99999-9999"
                     />
                   </div>
@@ -153,7 +147,7 @@ export default function Contato() {
                       name="city"
                       value={formData.city}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]"
+                      className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-(--color-primary)"
                       placeholder="São Paulo, SP"
                     />
                   </div>
@@ -168,15 +162,15 @@ export default function Contato() {
                       value={formData.projectType}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]"
+                      className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-(--color-primary)"
                     >
                       <option value="">Selecione...</option>
-                      <option value="residencial">Residencial</option>
-                      <option value="comercial">Comercial</option>
-                      <option value="corporativo">Corporativo</option>
-                      <option value="reforma">Reforma</option>
-                      <option value="consultoria">Consultoria</option>
-                      <option value="outro">Outro</option>
+                      <option value="Residencial">Residencial</option>
+                      <option value="Comercial">Comercial</option>
+                      <option value="Corporativo">Corporativo</option>
+                      <option value="Reforma">Reforma</option>
+                      <option value="Consultoria">Consultoria</option>
+                      <option value="Outro">Outro</option>
                     </select>
                   </div>
                 </div>
@@ -192,27 +186,17 @@ export default function Contato() {
                     onChange={handleChange}
                     required
                     rows={5}
-                    className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] resize-none"
+                    className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-(--color-primary) resize-none"
                     placeholder="Conte-me sobre seu projeto..."
                   />
                 </div>
 
                 <button
                   type="submit"
-                  disabled={isSubmitting}
-                  className="w-full px-6 py-4 bg-[var(--color-primary)] text-white rounded-lg hover:bg-[var(--color-primary-dark)] transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                  className="w-full px-6 py-4 bg-(--color-primary) text-white rounded-lg hover:bg-(--color-primary-dark) transition-colors flex items-center justify-center gap-2"
                 >
-                  {isSubmitting ? (
-                    <>
-                      <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                      Enviando...
-                    </>
-                  ) : (
-                    <>
-                      <Send className="w-5 h-5" />
-                      Enviar Mensagem
-                    </>
-                  )}
+                  <Send className="w-5 h-5" />
+                  Enviar Mensagem
                 </button>
               </form>
             </div>
@@ -228,40 +212,40 @@ export default function Contato() {
             {/* Direct Contact */}
             <div className="bg-gray-50 dark:bg-gray-900 rounded-lg p-8">
               <h2 className="text-2xl font-serif mb-6">Contato Direto</h2>
-              
+
               <div className="space-y-4">
                 <a
-                  href="mailto:ana.ferreira@email.com"
+                  href={`mailto:${EMAIL}`}
                   className="flex items-center gap-4 p-4 bg-white dark:bg-gray-800 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors group"
                 >
-                  <div className="w-12 h-12 bg-[var(--color-primary)] rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <div className="w-12 h-12 bg-(--color-primary) rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
                     <Mail className="w-6 h-6 text-white" />
                   </div>
                   <div>
                     <p className="font-medium">E-mail</p>
-                    <p className="text-sm text-gray-600 dark:text-gray-400">
-                      ana.ferreira@email.com
-                    </p>
+                    <p className="text-sm text-gray-600 dark:text-gray-400">{EMAIL}</p>
                   </div>
                 </a>
 
                 <a
-                  href="tel:+5511999999999"
+                  href={WHATSAPP}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex items-center gap-4 p-4 bg-white dark:bg-gray-800 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors group"
                 >
-                  <div className="w-12 h-12 bg-[var(--color-primary)] rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <div className="w-12 h-12 bg-(--color-primary) rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
                     <Phone className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <p className="font-medium">Telefone</p>
+                    <p className="font-medium">WhatsApp</p>
                     <p className="text-sm text-gray-600 dark:text-gray-400">
-                      (11) 99999-9999
+                      Enviar mensagem
                     </p>
                   </div>
                 </a>
 
                 <div className="flex items-center gap-4 p-4 bg-white dark:bg-gray-800 rounded-lg">
-                  <div className="w-12 h-12 bg-[var(--color-primary)] rounded-lg flex items-center justify-center">
+                  <div className="w-12 h-12 bg-(--color-primary) rounded-lg flex items-center justify-center">
                     <MapPin className="w-6 h-6 text-white" />
                   </div>
                   <div>
@@ -277,33 +261,33 @@ export default function Contato() {
             {/* Social Media */}
             <div className="bg-gray-50 dark:bg-gray-900 rounded-lg p-8">
               <h2 className="text-2xl font-serif mb-6">Redes Sociais</h2>
-              
+
               <div className="flex flex-col gap-3">
                 <a
-                  href="https://wa.me/5511999999999"
+                  href={WHATSAPP}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 px-6 py-4 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors"
+                  className="flex items-center gap-3 px-6 py-4 bg-(--color-primary) text-white rounded-lg hover:bg-(--color-primary-dark) transition-colors"
                 >
                   <MessageCircle className="w-5 h-5" />
                   <span className="font-medium">WhatsApp</span>
                 </a>
 
                 <a
-                  href="https://instagram.com"
+                  href={INSTAGRAM}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 px-6 py-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-lg hover:from-purple-600 hover:to-pink-600 transition-colors"
+                  className="flex items-center gap-3 px-6 py-4 bg-(--color-primary) text-white rounded-lg hover:bg-(--color-primary-dark) transition-colors"
                 >
                   <Instagram className="w-5 h-5" />
-                  <span className="font-medium">Instagram</span>
+                  <span className="font-medium">@masciamarcelo</span>
                 </a>
 
                 <a
-                  href="https://linkedin.com"
+                  href={LINKEDIN}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 px-6 py-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                  className="flex items-center gap-3 px-6 py-4 bg-(--color-primary) text-white rounded-lg hover:bg-(--color-primary-dark) transition-colors"
                 >
                   <Linkedin className="w-5 h-5" />
                   <span className="font-medium">LinkedIn</span>
@@ -312,7 +296,7 @@ export default function Contato() {
             </div>
 
             {/* Office Hours */}
-            <div className="bg-[var(--color-primary)] text-white rounded-lg p-8">
+            <div className="bg-(--color-primary) text-white rounded-lg p-8">
               <h3 className="text-xl font-serif mb-4">Horário de Atendimento</h3>
               <div className="space-y-2 text-white/90">
                 <p>Segunda a Sexta: 9h às 18h</p>

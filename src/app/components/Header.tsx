@@ -1,14 +1,11 @@
 import { Link, useLocation } from 'react-router';
-import { Menu, X, Palette } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
-import { useTheme } from '../context/ThemeContext';
 import { motion, AnimatePresence } from 'motion/react';
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isThemeSwitcherOpen, setIsThemeSwitcherOpen] = useState(false);
   const location = useLocation();
-  const { themeVariant, setThemeVariant } = useTheme();
 
   const navItems = [
     { path: '/', label: 'Home' },
@@ -19,19 +16,13 @@ export function Header() {
     { path: '/contato', label: 'Contato' },
   ];
 
-  const themes = [
-    { id: 'scandinavian' as const, name: 'Minimalista Escandinavo' },
-    { id: 'industrial' as const, name: 'Industrial Chic' },
-    { id: 'tropical' as const, name: 'Tropical Moderno' },
-  ];
-
   return (
     <header className="sticky top-0 z-50 backdrop-blur-md bg-white/80 border-b border-gray-200">
       <nav className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="text-2xl font-serif tracking-tight">
-            Ana Ferreira
+            Marcelo Mascia
           </Link>
 
           {/* Desktop Navigation */}
@@ -40,15 +31,15 @@ export function Header() {
               <Link
                 key={item.path}
                 to={item.path}
-                className={`relative transition-colors hover:text-[var(--color-primary)] ${
-                  location.pathname === item.path ? 'text-[var(--color-primary)]' : ''
+                className={`relative transition-colors hover:text-(--color-primary) ${
+                  location.pathname === item.path ? 'text-(--color-primary)' : ''
                 }`}
               >
                 {item.label}
                 {location.pathname === item.path && (
                   <motion.div
                     layoutId="activeNav"
-                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-[var(--color-primary)]"
+                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-(--color-primary)"
                   />
                 )}
               </Link>
@@ -57,47 +48,10 @@ export function Header() {
 
           {/* Actions */}
           <div className="flex items-center gap-3">
-            {/* Theme Switcher */}
-            <div className="relative">
-              <button
-                onClick={() => setIsThemeSwitcherOpen(!isThemeSwitcherOpen)}
-                className="p-2 rounded-lg hover:bg-gray-100 transition-colors"
-                aria-label="Mudar tema"
-              >
-                <Palette className="w-5 h-5" />
-              </button>
-              
-              <AnimatePresence>
-                {isThemeSwitcherOpen && (
-                  <motion.div
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -10 }}
-                    className="absolute right-0 mt-2 w-56 bg-white rounded-lg shadow-lg border border-gray-200 p-2"
-                  >
-                    {themes.map((theme) => (
-                      <button
-                        key={theme.id}
-                        onClick={() => {
-                          setThemeVariant(theme.id);
-                          setIsThemeSwitcherOpen(false);
-                        }}
-                        className={`w-full text-left px-3 py-2 rounded hover:bg-gray-100 transition-colors ${
-                          themeVariant === theme.id ? 'bg-gray-100' : ''
-                        }`}
-                      >
-                        {theme.name}
-                      </button>
-                    ))}
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-
             {/* CTA Button */}
             <Link
               to="/contato"
-              className="hidden md:block px-6 py-2 bg-[var(--color-primary)] text-white rounded-lg hover:bg-[var(--color-primary-dark)] transition-colors"
+              className="hidden md:block px-6 py-2 bg-(--color-primary) text-white rounded-lg hover:bg-(--color-primary-dark) transition-colors"
             >
               Fale comigo
             </Link>
@@ -130,7 +84,7 @@ export function Header() {
                     onClick={() => setIsMenuOpen(false)}
                     className={`block px-4 py-2 rounded-lg transition-colors ${
                       location.pathname === item.path
-                        ? 'bg-[var(--color-primary)] text-white'
+                        ? 'bg-(--color-primary) text-white'
                         : 'hover:bg-gray-100'
                     }`}
                   >
@@ -140,7 +94,7 @@ export function Header() {
                 <Link
                   to="/contato"
                   onClick={() => setIsMenuOpen(false)}
-                  className="block px-4 py-2 bg-[var(--color-primary)] text-white rounded-lg hover:bg-[var(--color-primary-dark)] transition-colors text-center"
+                  className="block px-4 py-2 bg-(--color-primary) text-white rounded-lg hover:bg-(--color-primary-dark) transition-colors text-center"
                 >
                   Fale comigo
                 </Link>

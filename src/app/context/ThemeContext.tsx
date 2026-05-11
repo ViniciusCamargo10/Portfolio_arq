@@ -1,20 +1,13 @@
-import { createContext, useContext, useState, ReactNode } from 'react';
+import { createContext, useContext, ReactNode } from 'react';
 
-type ThemeVariant = 'scandinavian' | 'industrial' | 'tropical';
+interface ThemeContextType {}
 
-interface ThemeContextType {
-  themeVariant: ThemeVariant;
-  setThemeVariant: (variant: ThemeVariant) => void;
-}
-
-const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
+const ThemeContext = createContext<ThemeContextType>({});
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  const [themeVariant, setThemeVariant] = useState<ThemeVariant>('scandinavian');
-
   return (
-    <ThemeContext.Provider value={{ themeVariant, setThemeVariant }}>
-      <div className={`theme-${themeVariant}`}>
+    <ThemeContext.Provider value={{}}>
+      <div className="theme-tropical">
         {children}
       </div>
     </ThemeContext.Provider>
@@ -22,9 +15,5 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
 }
 
 export function useTheme() {
-  const context = useContext(ThemeContext);
-  if (!context) {
-    throw new Error('useTheme must be used within ThemeProvider');
-  }
-  return context;
+  return useContext(ThemeContext);
 }
