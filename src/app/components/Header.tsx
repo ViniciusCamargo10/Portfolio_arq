@@ -76,28 +76,30 @@ export function Header() {
               exit={{ opacity: 0, height: 0 }}
               className="md:hidden overflow-hidden"
             >
-              <div className="py-4 space-y-2">
+              <div className="py-4 space-y-1 border-t border-gray-100 mt-2">
                 {navItems.map((item) => (
                   <Link
                     key={item.path}
                     to={item.path}
                     onClick={() => setIsMenuOpen(false)}
-                    className={`block px-4 py-2 rounded-lg transition-colors ${
+                    className={`block px-4 py-3 transition-colors font-medium ${
                       location.pathname === item.path
-                        ? 'bg-(--color-primary) text-white'
-                        : 'hover:bg-gray-100'
+                        ? 'text-(--color-primary)'
+                        : 'text-gray-700 hover:text-(--color-primary)'
                     }`}
                   >
                     {item.label}
                   </Link>
                 ))}
-                <Link
-                  to="/contato"
-                  onClick={() => setIsMenuOpen(false)}
-                  className="block px-4 py-2 bg-(--color-primary) text-white rounded-lg hover:bg-(--color-primary-dark) transition-colors text-center"
-                >
-                  Fale comigo
-                </Link>
+                <div className="pt-3 px-4">
+                  <Link
+                    to="/contato"
+                    onClick={() => setIsMenuOpen(false)}
+                    className="block py-3 bg-(--color-primary) text-white rounded-lg hover:bg-(--color-primary-dark) transition-colors text-center font-medium"
+                  >
+                    Fale comigo
+                  </Link>
+                </div>
               </div>
             </motion.div>
           )}
