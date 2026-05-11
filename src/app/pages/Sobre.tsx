@@ -52,9 +52,9 @@ export default function Sobre() {
             transition={{ delay: 0.2 }}
           >
             <img
-              src="https://images.unsplash.com/photo-1697095098675-1d02496ef86a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhcmNoaXRlY3QlMjBwcm9mZXNzaW9uYWwlMjBwb3J0cmFpdHxlbnwxfHx8fDE3NzM4NDQ4MzN8MA&ixlib=rb-4.1.0&q=80&w=1080"
+              src="/foto_nova.jpeg"
               alt="Marcelo Mascia - Arquiteto"
-              className="w-full h-[500px] object-cover rounded-lg shadow-xl"
+              className="w-full h-[520px] object-cover object-top rounded-lg shadow-xl"
               loading="lazy"
             />
           </motion.div>
