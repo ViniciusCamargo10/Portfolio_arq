@@ -69,7 +69,7 @@ export default function Experiencia() {
           className="text-center mb-16"
         >
           <h1 className="text-5xl md:text-6xl font-serif mb-6">Experiência</h1>
-          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Uma trajetória dedicada à criação de espaços excepcionais
           </p>
         </motion.div>
@@ -88,7 +88,7 @@ export default function Experiencia() {
 
           <div className="relative">
             {/* Timeline Line */}
-            <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-0.5 bg-gray-200 dark:bg-gray-800 transform md:-translate-x-1/2" />
+            <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-0.5 bg-gray-200 transform md:-translate-x-1/2" />
 
             {timeline.map((item, index) => (
               <motion.div
@@ -106,15 +106,15 @@ export default function Experiencia() {
                   style={index % 2 === 0 ? { right: '-2.125rem' } : { left: '-2.125rem' }} 
                 />
 
-                <div className="ml-8 md:ml-0 bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">
+                <div className="ml-8 md:ml-0 bg-white p-6 rounded-lg shadow-lg">
                   <span className="inline-block px-3 py-1 bg-[var(--color-primary)]/10 text-[var(--color-primary)] rounded-full text-sm mb-3">
                     {item.period}
                   </span>
                   <h3 className="text-xl font-serif mb-1">{item.role}</h3>
-                  <p className="text-gray-600 dark:text-gray-400 mb-3 font-medium">
+                  <p className="text-gray-600 mb-3 font-medium">
                     {item.company}
                   </p>
-                  <p className="text-gray-600 dark:text-gray-400">{item.description}</p>
+                  <p className="text-gray-600">{item.description}</p>
                 </div>
               </motion.div>
             ))}
@@ -139,7 +139,7 @@ export default function Experiencia() {
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="bg-gray-50 dark:bg-gray-900 p-8 rounded-lg"
+              className="bg-gray-50 p-8 rounded-lg"
             >
               <h3 className="text-2xl font-serif mb-6 text-center">Softwares</h3>
               <div className="grid grid-cols-2 gap-3">
@@ -150,7 +150,7 @@ export default function Experiencia() {
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.05 }}
-                    className="bg-white dark:bg-gray-800 px-4 py-3 rounded-lg text-center hover:bg-[var(--color-primary)] hover:text-white transition-colors"
+                    className="bg-white px-4 py-3 rounded-lg text-center hover:bg-[var(--color-primary)] hover:text-white transition-colors"
                   >
                     {software}
                   </motion.div>
@@ -163,7 +163,7 @@ export default function Experiencia() {
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="bg-gray-50 dark:bg-gray-900 p-8 rounded-lg"
+              className="bg-gray-50 p-8 rounded-lg"
             >
               <h3 className="text-2xl font-serif mb-6 text-center">Áreas de Atuação</h3>
               <div className="grid grid-cols-2 gap-3">
@@ -174,7 +174,7 @@ export default function Experiencia() {
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.05 }}
-                    className="bg-white dark:bg-gray-800 px-4 py-3 rounded-lg text-center hover:bg-[var(--color-primary)] hover:text-white transition-colors"
+                    className="bg-white px-4 py-3 rounded-lg text-center hover:bg-[var(--color-primary)] hover:text-white transition-colors"
                   >
                     {area}
                   </motion.div>

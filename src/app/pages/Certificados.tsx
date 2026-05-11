@@ -62,7 +62,7 @@ export default function Certificados() {
             <Award className="w-8 h-8 text-white" />
           </div>
           <h1 className="text-5xl md:text-6xl font-serif mb-6">Certificados</h1>
-          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Formação acadêmica e certificações que fundamentam minha prática profissional
           </p>
         </motion.div>
@@ -76,7 +76,7 @@ export default function Certificados() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="group bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow"
+              className="group bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow"
             >
               {/* Certificate Image Preview */}
               <div className="relative h-48 overflow-hidden">
@@ -102,7 +102,7 @@ export default function Certificados() {
                 <p className="text-(--color-primary) font-medium mb-3">
                   {cert.issuer}
                 </p>
-                <p className="text-gray-600 dark:text-gray-400 text-sm">
+                <p className="text-gray-600 text-sm">
                   {cert.description}
                 </p>
               </div>
@@ -115,12 +115,12 @@ export default function Certificados() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-20 text-center bg-gray-50 dark:bg-gray-900 rounded-lg p-12"
+          className="mt-20 text-center bg-gray-50 rounded-lg p-12"
         >
           <h2 className="text-3xl font-serif mb-4">
             Educação Continuada
           </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
             Acredito no aprendizado contínuo e sempre busco me atualizar com as últimas
             tendências e tecnologias em arquitetura e design.
           </p>

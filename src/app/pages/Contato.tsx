@@ -57,7 +57,7 @@ export default function Contato() {
           className="text-center mb-16"
         >
           <h1 className="text-5xl md:text-6xl font-serif mb-6">Vamos Conversar?</h1>
-          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Estou pronto para transformar seu sonho em realidade. Entre em contato e vamos
             criar juntos o espaço perfeito para você.
           </p>
@@ -70,17 +70,17 @@ export default function Contato() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.2 }}
           >
-            <div className="bg-white dark:bg-gray-800 rounded-lg p-8 shadow-lg">
+            <div className="bg-white rounded-lg p-8 shadow-lg">
               <h2 className="text-2xl font-serif mb-6">Envie sua Mensagem</h2>
 
               {isSuccess && (
                 <motion.div
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="mb-6 p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg flex items-center gap-3"
+                  className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg flex items-center gap-3"
                 >
-                  <CheckCircle className="w-5 h-5 text-green-600 dark:text-green-400 shrink-0" />
-                  <p className="text-green-800 dark:text-green-200">
+                  <CheckCircle className="w-5 h-5 text-green-600 shrink-0" />
+                  <p className="text-green-800">
                     Seu cliente de e-mail foi aberto com a mensagem pronta. Envie para finalizar o contato!
                   </p>
                 </motion.div>
@@ -98,7 +98,7 @@ export default function Contato() {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-(--color-primary)"
+                    className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-(--color-primary)"
                     placeholder="Seu nome completo"
                   />
                 </div>
@@ -115,7 +115,7 @@ export default function Contato() {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-(--color-primary)"
+                      className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-(--color-primary)"
                       placeholder="seu@email.com"
                     />
                   </div>
@@ -130,7 +130,7 @@ export default function Contato() {
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-(--color-primary)"
+                      className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-(--color-primary)"
                       placeholder="(11) 99999-9999"
                     />
                   </div>
@@ -147,7 +147,7 @@ export default function Contato() {
                       name="city"
                       value={formData.city}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-(--color-primary)"
+                      className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-(--color-primary)"
                       placeholder="São Paulo, SP"
                     />
                   </div>
@@ -162,7 +162,7 @@ export default function Contato() {
                       value={formData.projectType}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-(--color-primary)"
+                      className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-(--color-primary)"
                     >
                       <option value="">Selecione...</option>
                       <option value="Residencial">Residencial</option>
@@ -186,7 +186,7 @@ export default function Contato() {
                     onChange={handleChange}
                     required
                     rows={5}
-                    className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-(--color-primary) resize-none"
+                    className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-(--color-primary) resize-none"
                     placeholder="Conte-me sobre seu projeto..."
                   />
                 </div>
@@ -210,20 +210,20 @@ export default function Contato() {
             className="space-y-8"
           >
             {/* Direct Contact */}
-            <div className="bg-gray-50 dark:bg-gray-900 rounded-lg p-8">
+            <div className="bg-gray-50 rounded-lg p-8">
               <h2 className="text-2xl font-serif mb-6">Contato Direto</h2>
 
               <div className="space-y-4">
                 <a
                   href={`mailto:${EMAIL}`}
-                  className="flex items-center gap-4 p-4 bg-white dark:bg-gray-800 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors group"
+                  className="flex items-center gap-4 p-4 bg-white rounded-lg hover:bg-gray-100 transition-colors group"
                 >
                   <div className="w-12 h-12 bg-(--color-primary) rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
                     <Mail className="w-6 h-6 text-white" />
                   </div>
                   <div>
                     <p className="font-medium">E-mail</p>
-                    <p className="text-sm text-gray-600 dark:text-gray-400">{EMAIL}</p>
+                    <p className="text-sm text-gray-600">{EMAIL}</p>
                   </div>
                 </a>
 
@@ -231,26 +231,26 @@ export default function Contato() {
                   href={WHATSAPP}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-4 p-4 bg-white dark:bg-gray-800 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors group"
+                  className="flex items-center gap-4 p-4 bg-white rounded-lg hover:bg-gray-100 transition-colors group"
                 >
                   <div className="w-12 h-12 bg-(--color-primary) rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
                     <Phone className="w-6 h-6 text-white" />
                   </div>
                   <div>
                     <p className="font-medium">WhatsApp</p>
-                    <p className="text-sm text-gray-600 dark:text-gray-400">
+                    <p className="text-sm text-gray-600">
                       Enviar mensagem
                     </p>
                   </div>
                 </a>
 
-                <div className="flex items-center gap-4 p-4 bg-white dark:bg-gray-800 rounded-lg">
+                <div className="flex items-center gap-4 p-4 bg-white rounded-lg">
                   <div className="w-12 h-12 bg-(--color-primary) rounded-lg flex items-center justify-center">
                     <MapPin className="w-6 h-6 text-white" />
                   </div>
                   <div>
                     <p className="font-medium">Localização</p>
-                    <p className="text-sm text-gray-600 dark:text-gray-400">
+                    <p className="text-sm text-gray-600">
                       São Paulo, SP
                     </p>
                   </div>
@@ -259,7 +259,7 @@ export default function Contato() {
             </div>
 
             {/* Social Media */}
-            <div className="bg-gray-50 dark:bg-gray-900 rounded-lg p-8">
+            <div className="bg-gray-50 rounded-lg p-8">
               <h2 className="text-2xl font-serif mb-6">Redes Sociais</h2>
 
               <div className="flex flex-col gap-3">

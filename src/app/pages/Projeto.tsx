@@ -28,7 +28,7 @@ export default function Projeto() {
       <div className="container mx-auto px-4 pt-8">
         <Link
           to="/projetos"
-          className="inline-flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-(--color-primary) transition-colors"
+          className="inline-flex items-center gap-2 text-gray-600 hover:text-(--color-primary) transition-colors"
         >
           <ArrowLeft className="w-5 h-5" />
           Voltar aos projetos
@@ -88,7 +88,7 @@ export default function Projeto() {
             </div>
             <h2 className="text-3xl md:text-4xl font-serif">Desafio</h2>
           </div>
-          <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-4xl">
+          <p className="text-lg text-gray-600 leading-relaxed max-w-4xl">
             {project.challenge}
           </p>
         </motion.section>
@@ -107,7 +107,7 @@ export default function Projeto() {
             </div>
             <h2 className="text-3xl md:text-4xl font-serif">Conceito</h2>
           </div>
-          <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-4xl">
+          <p className="text-lg text-gray-600 leading-relaxed max-w-4xl">
             {project.concept}
           </p>
         </motion.section>
@@ -126,7 +126,7 @@ export default function Projeto() {
             </div>
             <h2 className="text-3xl md:text-4xl font-serif">Soluções</h2>
           </div>
-          <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-4xl">
+          <p className="text-lg text-gray-600 leading-relaxed max-w-4xl">
             {project.solutions}
           </p>
         </motion.section>
@@ -150,7 +150,7 @@ export default function Projeto() {
                   afterImage={item.after}
                   mode={item.mode}
                 />
-                <p className="text-center mt-4 text-gray-600 dark:text-gray-400">
+                <p className="text-center mt-4 text-gray-600">
                   {item.caption}
                 </p>
               </div>
@@ -172,7 +172,7 @@ export default function Projeto() {
             </div>
             <h2 className="text-3xl md:text-4xl font-serif">Resultados</h2>
           </div>
-          <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-4xl">
+          <p className="text-lg text-gray-600 leading-relaxed max-w-4xl">
             {project.results}
           </p>
         </motion.section>
@@ -211,9 +211,9 @@ export default function Projeto() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="max-w-4xl mx-auto bg-gray-50 dark:bg-gray-900 rounded-lg p-8 md:p-12"
+            className="max-w-4xl mx-auto bg-gray-50 rounded-lg p-8 md:p-12"
           >
-            <p className="text-2xl text-gray-700 dark:text-gray-300 mb-6 italic text-center">
+            <p className="text-2xl text-gray-700 mb-6 italic text-center">
               "{project.testimonial.text}"
             </p>
             <p className="text-center font-semibold">— {project.testimonial.author}</p>

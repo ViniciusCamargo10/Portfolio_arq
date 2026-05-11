@@ -67,7 +67,7 @@ export default function Projetos() {
           className="text-center mb-12"
         >
           <h1 className="text-5xl md:text-6xl font-serif mb-6">Projetos</h1>
-          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Explore meu portfólio de projetos residenciais e comerciais que transformam espaços
             em experiências memoráveis
           </p>
@@ -78,7 +78,7 @@ export default function Projetos() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="bg-gray-50 dark:bg-gray-900 rounded-lg p-6 mb-12"
+          className="bg-gray-50 rounded-lg p-6 mb-12"
         >
           {/* Search */}
           <div className="mb-6">
@@ -89,14 +89,14 @@ export default function Projetos() {
                 placeholder="Buscar projetos..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-10 pr-4 py-3 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-(--color-primary)"
+                className="w-full pl-10 pr-4 py-3 bg-white border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-(--color-primary)"
               />
             </div>
           </div>
 
           {/* Type Filters */}
           <div className="mb-4">
-            <h3 className="text-sm font-medium mb-3 text-gray-700 dark:text-gray-300">Tipologia</h3>
+            <h3 className="text-sm font-medium mb-3 text-gray-700">Tipologia</h3>
             <FiltroChips
               filters={typeFilters}
               activeFilters={activeTypeFilters}
@@ -106,7 +106,7 @@ export default function Projetos() {
 
           {/* Year Filters */}
           <div className="mb-4">
-            <h3 className="text-sm font-medium mb-3 text-gray-700 dark:text-gray-300">Ano</h3>
+            <h3 className="text-sm font-medium mb-3 text-gray-700">Ano</h3>
             <FiltroChips
               filters={yearFilters}
               activeFilters={activeYearFilters}
@@ -116,7 +116,7 @@ export default function Projetos() {
 
           {/* Style Filters */}
           <div>
-            <h3 className="text-sm font-medium mb-3 text-gray-700 dark:text-gray-300">Estilo</h3>
+            <h3 className="text-sm font-medium mb-3 text-gray-700">Estilo</h3>
             <FiltroChips
               filters={styleFilters}
               activeFilters={activeStyleFilters}
@@ -129,7 +129,7 @@ export default function Projetos() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          className="mb-6 text-gray-600 dark:text-gray-400"
+          className="mb-6 text-gray-600"
         >
           {filteredProjects.length} {filteredProjects.length === 1 ? 'projeto encontrado' : 'projetos encontrados'}
         </motion.div>
@@ -160,7 +160,7 @@ export default function Projetos() {
             animate={{ opacity: 1 }}
             className="text-center py-20"
           >
-            <p className="text-xl text-gray-600 dark:text-gray-400 mb-4">
+            <p className="text-xl text-gray-600 mb-4">
               Nenhum projeto encontrado com os filtros selecionados
             </p>
             <button

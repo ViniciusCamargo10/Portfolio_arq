@@ -39,7 +39,7 @@ export default function Sobre() {
           className="text-center mb-16"
         >
           <h1 className="text-5xl md:text-6xl font-serif mb-6">Sobre Mim</h1>
-          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Transformando sonhos em realidade através da arquitetura
           </p>
         </motion.div>
@@ -66,12 +66,12 @@ export default function Sobre() {
             className="space-y-6"
           >
             <h2 className="text-3xl font-serif">Marcelo Mascia</h2>
-            <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
+            <p className="text-lg text-gray-600 leading-relaxed">
               Arquiteto e urbanista formado pela Universidade de São Paulo, com pós-graduação em
               Design de Interiores e especialização em Arquitetura Sustentável. Há mais de uma década,
               dedico-me a criar espaços que harmonizam funcionalidade, estética e bem-estar.
             </p>
-            <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
+            <p className="text-lg text-gray-600 leading-relaxed">
               Minha abordagem é colaborativa e personalizada, acreditando que cada projeto é único e
               deve refletir a personalidade e necessidades de quem irá vivenciá-lo. Busco sempre
               soluções inovadoras que respeitem o meio ambiente e valorizem a qualidade de vida.
@@ -106,10 +106,10 @@ export default function Sobre() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="flex items-start gap-3 p-4 bg-gray-50 dark:bg-gray-900 rounded-lg"
+                className="flex items-start gap-3 p-4 bg-gray-50 rounded-lg"
               >
                 <div className="w-2 h-2 bg-(--color-primary) rounded-full mt-2 shrink-0" />
-                <p className="text-gray-700 dark:text-gray-300">{item}</p>
+                <p className="text-gray-700">{item}</p>
               </motion.div>
             ))}
           </div>
@@ -130,13 +130,13 @@ export default function Sobre() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.2 }}
-                className="text-center p-8 bg-gray-50 dark:bg-gray-900 rounded-lg"
+                className="text-center p-8 bg-gray-50 rounded-lg"
               >
                 <div className="inline-flex items-center justify-center w-16 h-16 bg-(--color-primary) text-white rounded-full mb-4">
                   <value.icon className="w-8 h-8" />
                 </div>
                 <h3 className="text-xl font-serif mb-2">{value.title}</h3>
-                <p className="text-gray-600 dark:text-gray-400">{value.description}</p>
+                <p className="text-gray-600">{value.description}</p>
               </motion.div>
             ))}
           </div>

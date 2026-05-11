@@ -13,7 +13,7 @@ export default function NotFound() {
         >
           <h1 className="text-9xl font-serif mb-4 text-[var(--color-primary)]">404</h1>
           <h2 className="text-3xl md:text-4xl font-serif mb-4">Página Não Encontrada</h2>
-          <p className="text-lg text-gray-600 dark:text-gray-400 mb-8">
+          <p className="text-lg text-gray-600 mb-8">
             Desculpe, a página que você está procurando não existe.
           </p>
         </motion.div>
@@ -33,7 +33,7 @@ export default function NotFound() {
           </Link>
           <button
             onClick={() => window.history.back()}
-            className="inline-flex items-center gap-2 px-6 py-3 bg-gray-200 dark:bg-gray-800 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-gray-200 rounded-lg hover:bg-gray-300 transition-colors"
           >
             <ArrowLeft className="w-5 h-5" />
             Voltar
